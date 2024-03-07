@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/20 13:36:22 by edribeir      #+#    #+#                  #
-#    Updated: 2024/02/05 14:48:26 by edribeir      ########   odam.nl          #
+#    Updated: 2024/03/07 14:06:33 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,15 +77,19 @@ OBJECTS = $(SOURCE:%.c=%.o)
 all: $(NAME)
 
 $(NAME) : $(OBJECTS)
-	$(AR) $(NAME) $(OBJECTS)
+	@$(AR) $(NAME) $(OBJECTS)
+	@echo "----> LIBFT DONE 😊 <----"
 
-%.o:%.c $(CC) -c $(CFLAGS) -o $@ $^
+%.o:%.c 
+	@$(CC) -c $(CFLAGS) -o $@ $^
 
 clean: 
-	$(RM) $(OBJECTS)
+	@$(RM) $(OBJECTS)
+	@echo "----> LIBFT Cleansed!✅ <----"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "----> LIBFT ALL Cleansed!✅ <----"
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/07 14:56:10 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/11 15:02:38 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 #define WIDTH 820
 #define HEIGHT 820
 
-int	main(void)
+void	ft_keyhook(mlx_key_data_t keydata, void *mlx)
+{
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		mlx_close_window(mlx);
+}
+
+int32_t	main(void)
 {
 	mlx_t	*mlx;
 	mlx_image_t *display_image;
@@ -56,5 +62,8 @@ int	main(void)
 		y++;
 	}
 	mlx_image_to_window(mlx, display_image2, 380, 210);
+	mlx_key_hook(mlx, &ft_keyhook, mlx);
 	mlx_loop(mlx);
+	mlx_terminate(mlx);
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/03/07 14:21:39 by edribeir      ########   odam.nl          #
+#    Updated: 2024/03/11 11:14:50 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,27 @@ LIBFT = ./Libft/libft.a
 
 MLXLIB = MLX42/build/libmlx42.a
 
+LIBMLX = ./MLX42
+
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 
-FLAGS = -ldl -lglfw -pthread -lm
+FLAGSMLX = -ldl -lglfw -pthread -lm 
 
 SOURCE = so_long.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 
-all: $(NAME)
+all: libmlx $(NAME)
+
+libmlx:
+	@cmake $(LIBMLX) -DEBUG=1 -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 $(LIBFT):
 	@$(MAKE) -C ./Libft
 
 	
 $(NAME): $(LIBFT) $(MLXLIB) $(OBJECTS)
-	@cc $(CFLAGS) $(FLAGS) $(OBJECTS) $(LIBFT) $(MLXLIB) -o $(NAME)
+	@cc $(CFLAGS) $(FLAGSMLX) $(OBJECTS) $(LIBFT) $(MLXLIB) -o $(NAME)
 	@echo "----> LET'S PLAY!! 🎉🎉"
 
 %.o:%.c 
@@ -40,6 +45,7 @@ $(NAME): $(LIBFT) $(MLXLIB) $(OBJECTS)
 clean: 
 	@$(MAKE) clean -C ./Libft
 	@rm -f $(OBJECTS)
+	@rm -rf $(LIBMLX)/build
 	@echo "------> OFILES Cleansed ✅!"
 
 fclean: clean

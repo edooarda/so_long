@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/12 17:15:18 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/19 17:14:24 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,26 @@ void	ft_keyhook(mlx_key_data_t keydata, void *mlx)
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(mlx);
 }
-int32_t	main(void)
+int32_t	main(int argc, char **argv)
 {
-	mlx_t	*mlx;
+	// mlx_t	*mlx;
+	char	*map;
 	// mlx_image_t *display_image;
 	// mlx_image_t *display_image2;
-	mlx_texture_t *background_img;
-	mlx_image_t *background;
+	// mlx_texture_t *background_img;
+	// mlx_image_t *background;
 	// int x;
 	// int y;
-
-	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
+	if (argc != 2)
 	{
-		puts(mlx_strerror(mlx_errno));
-		return(EXIT_FAILURE);
+		ft_printf("Error\nInsert ONE FILE! Just ONE MAP!\n");
+		exit(EXIT_FAILURE);
 	}
+	// if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
+	// {
+	// 	puts(mlx_strerror(mlx_errno));
+	// 	return(EXIT_FAILURE);
+	// }
 	// display_image = mlx_new_image(mlx, 300, 100);
 	// y = 0;
 	// while(y < 100)
@@ -63,11 +68,15 @@ int32_t	main(void)
 	// }
 	// mlx_image_to_window(mlx, display_image2, 380, 210);
 
-	background_img = mlx_load_png("./texture/rock.png");
-	background = mlx_texture_to_image(mlx, background_img);
-	mlx_image_to_window(mlx, background, WIDTH, HEIGHT);
-	mlx_key_hook(mlx, &ft_keyhook, mlx);
-	mlx_loop(mlx);
-	mlx_terminate(mlx);
+	// background_img = mlx_load_png("./texture/rock.png");
+	// background = mlx_texture_to_image(mlx, background_img);
+	// mlx_image_to_window(mlx, background, WIDTH, HEIGHT);
+	checker_file_extension(argv[1]);
+	map = read_map(argv[1]);
+	map_checkers(map);
+	ft_printf("%s", map);
+	// mlx_key_hook(mlx, &ft_keyhook, mlx);
+	// mlx_loop(mlx);
+	// mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
 }

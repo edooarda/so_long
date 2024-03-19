@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/03/11 11:14:50 by edribeir      ########   odam.nl          #
+#    Updated: 2024/03/19 17:09:54 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,9 @@ CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 FLAGSMLX = -ldl -lglfw -pthread -lm 
 
 SOURCE = so_long.c \
+			parsing.c \
+			checkers.c \
+			map_checkers.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 

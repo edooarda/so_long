@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/03/19 17:09:54 by edribeir      ########   odam.nl          #
+#    Updated: 2024/03/20 15:56:36 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FLAGSMLX = -ldl -lglfw -pthread -lm
 SOURCE = so_long.c \
 			parsing.c \
 			checkers.c \
-			map_checkers.c \
+			str_map_checkers.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 

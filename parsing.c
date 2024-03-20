@@ -6,13 +6,13 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 11:48:53 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/19 16:42:34 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:14:10 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*read_map(char *map) // there is another way of doing the while without a break?
+char	*read_map(char *map)
 {
 	char	*current_line;
 	char	*map_read;
@@ -27,17 +27,20 @@ char	*read_map(char *map) // there is another way of doing the while without a b
 	map_read = ft_calloc(1, sizeof(char));
 	if (map_read == NULL)
 		return (NULL);
-	while (fd)
+	while ((current_line = get_next_line(fd))!= NULL)
 	{
-		current_line = get_next_line(fd);
-		if(current_line != NULL)
-		{
-			map_read = ft_strjoin(map_read, current_line);
-			free(current_line);
-		}
-		else
-			break ;
+		map_read = ft_strjoin(map_read, current_line);
+		free(current_line);
 	}
 	close (fd);
 	return (map_read);
+}
+
+void turn_file_into_data(char *argv)
+{
+	char	*str_map;
+	
+	str_map = read_map(argv);
+	str_map_checkers(str_map);
+	ft_printf("%s",str_map);
 }

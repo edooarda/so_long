@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/19 17:18:00 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:13:59 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,18 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
+typedef struct s_game
+{
+	char	**game;
+	int		height;
+	int		width;
+} t_game;
+
 char	*read_map(char *map);
-void	map_checkers(char *map);
+void	str_map_checkers(char *map);
+
+// File Functions
 void	checker_file_extension(char *file);
+void turn_file_into_data(char *argv);
 
 #endif

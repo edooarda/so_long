@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/19 17:14:24 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/20 14:57:14 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_keyhook(mlx_key_data_t keydata, void *mlx)
 int32_t	main(int argc, char **argv)
 {
 	// mlx_t	*mlx;
-	char	*map;
+	// t_game *game;
 	// mlx_image_t *display_image;
 	// mlx_image_t *display_image2;
 	// mlx_texture_t *background_img;
@@ -72,9 +72,7 @@ int32_t	main(int argc, char **argv)
 	// background = mlx_texture_to_image(mlx, background_img);
 	// mlx_image_to_window(mlx, background, WIDTH, HEIGHT);
 	checker_file_extension(argv[1]);
-	map = read_map(argv[1]);
-	map_checkers(map);
-	ft_printf("%s", map);
+	turn_file_into_data(argv[1]); // < turn the hole data into the struct! 
 	// mlx_key_hook(mlx, &ft_keyhook, mlx);
 	// mlx_loop(mlx);
 	// mlx_terminate(mlx);

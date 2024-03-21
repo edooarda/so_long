@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 11:48:53 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/20 17:14:10 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/21 13:58:42 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,16 @@ char	*read_map(char *map)
 void turn_file_into_data(char *argv)
 {
 	char	*str_map;
+	char	**array_map;
 	
 	str_map = read_map(argv);
 	str_map_checkers(str_map);
-	ft_printf("%s",str_map);
+	array_map = ft_split(str_map, '\n');
+
+	int i = 0;
+	while(array_map[i])
+	{
+		ft_printf("- %s\n",array_map[i]);
+		i++;
+	}
 }

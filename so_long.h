@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/20 17:13:59 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/26 14:48:17 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_game
 
 char	*read_map(char *map);
 void	str_map_checkers(char *map);
+void	array_map_checkers(char **array_map);
 
 // File Functions
 void	checker_file_extension(char *file);

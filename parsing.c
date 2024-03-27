@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 11:48:53 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/26 18:09:34 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/27 17:56:44 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ char	*read_map(char *map)
 
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_printf("Error\nThere is a problem Open the File\n");
-		exit (EXIT_FAILURE);
-	}
+		error_message("There is a problem Open the File");
 	map_read = ft_calloc(1, sizeof(char));
 	if (map_read == NULL)
 		return (NULL);
@@ -36,21 +33,19 @@ char	*read_map(char *map)
 	return (map_read);
 }
 
-void turn_file_into_data(char *argv)
+t_game	*turn_file_into_data(char *argv)
 {
+	t_game	*game;
 	char	*str_map;
 	char	**array_map;
+	int		height;
 	
 	str_map = read_map(argv);
 	str_map_checkers(str_map);
 	array_map = ft_split(str_map, '\n');
-	array_map_checkers(array_map);
-	
-	int i = 0;
-	while(array_map[i])
-	{
-		ft_printf("- %s\n",array_map[i]);
-		i++;
-	}
+	height = array_map_checkers(array_map);
+	game = initialize_game_struct(array_map, height);
+
 	free(str_map);
+	return (game);
 }

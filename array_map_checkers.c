@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/26 11:30:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/26 18:03:15 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/27 17:55:45 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,24 @@
 
 static void	array_map_wall(int height, char **array_map)
 {
-	int	i;
-	int	j;
+	int	col;
+	int	line;
 	int	len;
 
-	i = 0;
-	j = 0;
+	line = 0;
 	len = (ft_strlen(array_map[0]) - 1);
-	while (array_map[j])
+	while (array_map[line])
 	{
-		while (array_map[j][i])
+		col = 0;
+		while (array_map[line][col])
 		{
-			if (array_map[0][i] != '1' || array_map[height - 1][i] != '1')
-			{
-				ft_printf("ERROR\nThe Map is not surrounded by Walls\n");
-				exit (EXIT_FAILURE);
-			}
-			i++;
+			if (array_map[0][col] != '1' || array_map[height][col] != '1')
+				error_message("The Map is not surrounded by Walls");
+			col++;
 		}
-		if (array_map[j][0] != '1' || array_map[j][len] != '1')
-		{
-			ft_printf("ERROR\nThe Map is not surrounded by Walls\n");
-			exit (EXIT_FAILURE);
-		}
-		j++;
+		if (array_map[line][0] != '1' || array_map[line][len] != '1')
+			error_message("The Map is not surrounded by Walls");
+		line++;
 	}
 }
 
@@ -51,19 +45,19 @@ static int	array_map_shape(char **array_map)
 	while (array_map[line])
 	{
 		if (ft_strlen(array_map[line]) != len_line)
-		{
-			ft_printf("ERROR\nMap is Not a Retangular Shape\n");
-			exit (EXIT_FAILURE);
-		}
+			error_message("Map is Not a Retangular Shape");
 		line++;
 	}
-	return (line);
+	return (line - 1);
 }
 
-void	array_map_checkers(char **array_map)
+int	array_map_checkers(char **array_map)
 {
 	int	height;
 
 	height = array_map_shape(array_map);
 	array_map_wall(height, array_map);
+	// TO DO: CHECK WITH there is a viable Path
+
+	return (height);
 }

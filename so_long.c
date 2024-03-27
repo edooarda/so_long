@@ -6,14 +6,27 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/20 14:57:14 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/27 18:12:12 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#define WIDTH 820
-#define HEIGHT 820
+void	error_message(char *message)
+{
+	ft_printf("ERROR\n");
+	ft_putendl_fd(message, 2);
+	exit(EXIT_FAILURE);
+}
+
+void	checker_file_extension(char *file)
+{
+	int	len;
+	
+	len = ft_strlen(file);
+	if (len < 4 || ft_strncmp(&file[len - 4], ".ber", 4))
+		error_message("Please, use a .ber file for the Map");
+}
 
 void	ft_keyhook(mlx_key_data_t keydata, void *mlx)
 {
@@ -22,24 +35,25 @@ void	ft_keyhook(mlx_key_data_t keydata, void *mlx)
 }
 int32_t	main(int argc, char **argv)
 {
-	// mlx_t	*mlx;
-	// t_game *game;
-	// mlx_image_t *display_image;
-	// mlx_image_t *display_image2;
-	// mlx_texture_t *background_img;
-	// mlx_image_t *background;
-	// int x;
-	// int y;
+	t_game *game;
+
 	if (argc != 2)
+		error_message("Insert ONE FILE! Just ONE MAP!");
+	checker_file_extension(argv[1]);
+	game = turn_file_into_data(argv[1]); 
+	if (!(game->mlx = mlx_init((game->width * PIXELS), (game->height * PIXELS), "MLX42", true)))
 	{
-		ft_printf("Error\nInsert ONE FILE! Just ONE MAP!\n");
-		exit(EXIT_FAILURE);
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
 	}
-	// if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
-	// {
-	// 	puts(mlx_strerror(mlx_errno));
-	// 	return(EXIT_FAILURE);
-	// }
+
+	mlx_key_hook(game->mlx, &ft_keyhook, game->mlx);
+	mlx_loop(game->mlx);
+	mlx_terminate(game->mlx);
+	return (EXIT_SUCCESS);
+}
+
+
 	// display_image = mlx_new_image(mlx, 300, 100);
 	// y = 0;
 	// while(y < 100)
@@ -71,10 +85,3 @@ int32_t	main(int argc, char **argv)
 	// background_img = mlx_load_png("./texture/rock.png");
 	// background = mlx_texture_to_image(mlx, background_img);
 	// mlx_image_to_window(mlx, background, WIDTH, HEIGHT);
-	checker_file_extension(argv[1]);
-	turn_file_into_data(argv[1]); // < turn the hole data into the struct! 
-	// mlx_key_hook(mlx, &ft_keyhook, mlx);
-	// mlx_loop(mlx);
-	// mlx_terminate(mlx);
-	return (EXIT_SUCCESS);
-}

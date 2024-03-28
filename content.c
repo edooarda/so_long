@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/27 12:04:30 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/27 18:05:26 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/28 16:56:04 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,15 @@ t_game	*element_position(char **map, t_game *game)
 	}
 	return (game);
 }
+
 t_game	*initialize_game_struct(char **map, int height)
 {
 	t_game	*game;
 	
 	game = (t_game *)ft_calloc(1, sizeof(t_game));
-	if (!game)
+	if (game == NULL)
 		error_message("Memory Allocation Failed");
+	game->map = map;
 	game->moves = 0;
 	game = collectible_counter(map, game);
 	game = element_position(map, game);
@@ -82,4 +84,14 @@ t_game	*initialize_game_struct(char **map, int height)
 		ft_printf("%i widht\n", game->width);
 		ft_printf("%i height\n", game->height);
 	return (game);
+}
+t_image	*initialize_image_struct(t_game *game)
+{
+	t_image	*textures;
+
+	textures = ft_calloc(1 , sizeof(t_image));
+	if (textures == NULL)
+		error_message("Memory Allocation Failed");
+	textures = add_wall_texture(game->mlx, textures);
+	return (textures);
 }

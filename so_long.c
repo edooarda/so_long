@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/27 18:12:12 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/03/28 16:09:09 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int32_t	main(int argc, char **argv)
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);
 	}
-
+	game->textures = initialize_image_struct(game);
+	add_texture_window(game, game->map);
 	mlx_key_hook(game->mlx, &ft_keyhook, game->mlx);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);

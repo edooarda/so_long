@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/28 16:09:09 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/02 15:45:57 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_message(char *message)
 {
-	ft_printf("ERROR\n");
+	ft_putendl_fd("ERROR", 2);
 	ft_putendl_fd(message, 2);
 	exit(EXIT_FAILURE);
 }
@@ -47,7 +47,8 @@ int32_t	main(int argc, char **argv)
 		return(EXIT_FAILURE);
 	}
 	game->textures = initialize_image_struct(game);
-	add_texture_window(game, game->map);
+	add_texture_window(game);
+	mlx_key_hook(game->mlx, ft_hook_moves, game);
 	mlx_key_hook(game->mlx, &ft_keyhook, game->mlx);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);

@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/03/28 13:33:43 by edribeir      ########   odam.nl          #
+#    Updated: 2024/04/02 15:12:34 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SOURCE = so_long.c \
 			array_map_checkers.c \
 			content.c \
 			texture_functions.c \
+			add_to_window.c \
+			moviments.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 

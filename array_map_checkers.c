@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/26 11:30:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/27 17:55:45 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/02 10:59:45 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	array_map_wall(int height, char **array_map)
 		col = 0;
 		while (array_map[line][col])
 		{
-			if (array_map[0][col] != '1' || array_map[height][col] != '1')
+			if (array_map[0][col] != '1' || array_map[height - 1][col] != '1')
 				error_message("The Map is not surrounded by Walls");
 			col++;
 		}
@@ -48,7 +48,7 @@ static int	array_map_shape(char **array_map)
 			error_message("Map is Not a Retangular Shape");
 		line++;
 	}
-	return (line - 1);
+	return (line);
 }
 
 int	array_map_checkers(char **array_map)

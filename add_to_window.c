@@ -6,11 +6,31 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 14:28:44 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/02 15:18:16 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/04 18:35:58 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	add_floor_window(t_game *game)
+{
+	int	line;
+	int	col;
+
+	line = 0;
+	while (line < game->height)
+	{
+		col = 0;
+		while (col < game->width)
+		{
+			if (mlx_image_to_window(game->mlx, game->textures->floor,
+					col * PIXELS, line * PIXELS) < 0)
+				error_message("Failed to put wall image to window");
+			col++;
+		}
+		line++;
+	}
+}
 
 static void	add_texture_character(t_game *game, int line, int col)
 {
@@ -51,11 +71,7 @@ void	add_texture_window(t_game *game)
 		col = 0;
 		while (col < game->width)
 		{
-			if (mlx_image_to_window(game->mlx, game->textures->floor,
-					col * PIXELS, line * PIXELS) < 0)
-				error_message("Failed to put floor image to window");
-			else
-				add_texture_character(game, line, col);
+			add_texture_character(game, line, col);
 			col++;
 		}
 		line++;

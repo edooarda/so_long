@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/27 12:04:30 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/02 15:15:13 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/04 18:23:25 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,6 @@ t_game	*initialize_game_struct(char **map, int height)
 	game = element_position(map, game);
 	game->height = height;
 	game->width = ft_strlen(map[0]);
-		ft_printf("%i how many carrots\n", game->collectable);
-		ft_printf("%i position exit line\n", game->exit_position_x);
-		ft_printf("%i position exit column\n", game->exit_position_y);
-		ft_printf("%i position player line\n", game->player_position_x);
-		ft_printf("%i position player column\n", game->player_position_y);
-		ft_printf("%i widht\n", game->width);
-		ft_printf("%i height\n", game->height);
 	return (game);
 }
 t_image	*initialize_image_struct(t_game *game)

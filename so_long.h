@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/02 17:45:59 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/04 18:33:26 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ t_image	*add_collectable_texture(mlx_t *mlx, t_image *image);
 t_image	*add_exit_texture(mlx_t *mlx, t_image *image);
 t_image	*add_player_texture(mlx_t *mlx, t_image *image);
 void	add_texture_window(t_game *game);
+void	add_floor_window(t_game *game);
 
 // Moviments
 void	ft_hook_moves(mlx_key_data_t keydata, void *mlx);
-
 
 #endif

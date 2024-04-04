@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/28 13:31:13 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/02 15:17:02 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/04 17:14:00 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ t_image	*add_player_texture(mlx_t *mlx, t_image *image)
 	if (hero_wait == NULL)
 		error_message("Problem with loading P.Image");
 	image->player_wait = mlx_texture_to_image(mlx, hero_wait);
-	if (image->exit == NULL)
+	if (image->player_wait == NULL)
 		error_message("Problem adding texture P.Image");
 	mlx_delete_texture(hero_wait);
-	image->player_down = mlx_load_png("texture/hero_down.png");
-	if (image->player_down == NULL)
-		error_message("Problem with loading D.H Texture");
-	image->player_up = mlx_load_png("texture/hero_up.png");
-	if (image->player_up == NULL)
-		error_message("Problem with loading U.H Texture");
-	image->player_right = mlx_load_png("texture/hero_right.png");
-	if (image->player_right == NULL)
-		error_message("Problem with loading R.H Texture");
-	image->player_left = mlx_load_png("texture/hero_left.png");
-	if (image->player_left == NULL)
-		error_message("Problem with loading L.H Texture");
+	// image->player_down = mlx_load_png("texture/hero_down.png");
+	// if (image->player_down == NULL)
+	// 	error_message("Problem with loading D.H Texture");
+	// image->player_up = mlx_load_png("texture/hero_up.png");
+	// if (image->player_up == NULL)
+	// 	error_message("Problem with loading U.H Texture");
+	// image->player_right = mlx_load_png("texture/hero_right.png");
+	// if (image->player_right == NULL)
+	// 	error_message("Problem with loading R.H Texture");
+	// image->player_left = mlx_load_png("texture/hero_left.png");
+	// if (image->player_left == NULL)
+	// 	error_message("Problem with loading L.H Texture");
 	return (image);
 }
 

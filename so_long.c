@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/02 15:45:57 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/04 18:33:18 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ void	checker_file_extension(char *file)
 		error_message("Please, use a .ber file for the Map");
 }
 
-void	ft_keyhook(mlx_key_data_t keydata, void *mlx)
-{
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		mlx_close_window(mlx);
-}
 int32_t	main(int argc, char **argv)
 {
 	t_game *game;
@@ -41,49 +36,16 @@ int32_t	main(int argc, char **argv)
 		error_message("Insert ONE FILE! Just ONE MAP!");
 	checker_file_extension(argv[1]);
 	game = turn_file_into_data(argv[1]); 
-	if (!(game->mlx = mlx_init((game->width * PIXELS), (game->height * PIXELS), "MLX42", true)))
+	if (!(game->mlx = mlx_init((game->width * PIXELS), (game->height * PIXELS), "so_long", true)))
 	{
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);
 	}
 	game->textures = initialize_image_struct(game);
+	add_floor_window(game);
 	add_texture_window(game);
 	mlx_key_hook(game->mlx, ft_hook_moves, game);
-	mlx_key_hook(game->mlx, &ft_keyhook, game->mlx);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
 	return (EXIT_SUCCESS);
 }
-
-
-	// display_image = mlx_new_image(mlx, 300, 100);
-	// y = 0;
-	// while(y < 100)
-	// {
-	// 	x = 0;
-	// 	while(x < 300)
-	// 	{
-	// 		mlx_put_pixel(display_image, x, y, 0xFFFFFFFF);
-	// 		x++;
-	// 	}
-	// 	y++;
-	// }
-	// mlx_image_to_window(mlx, display_image, 280, 300);
-	
-	// display_image2 = mlx_new_image(mlx, 100, 300);
-	// y = 0;
-	// while(y < 300)
-	// {
-	// 	x = 0;
-	// 	while(x < 100)
-	// 	{
-	// 		mlx_put_pixel(display_image2, x, y, 0xFFFFFF);
-	// 		x++;
-	// 	}
-	// 	y++;
-	// }
-	// mlx_image_to_window(mlx, display_image2, 380, 210);
-
-	// background_img = mlx_load_png("./texture/rock.png");
-	// background = mlx_texture_to_image(mlx, background_img);
-	// mlx_image_to_window(mlx, background, WIDTH, HEIGHT);

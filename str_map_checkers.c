@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 17:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/03/27 18:06:50 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/04 17:30:41 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	check_map_invalid_char(char *map)
 	{
 		if (ft_strchr("01PEC\n", map[i]) == NULL)
 		{
-			ft_printf("Error\n");
+			ft_putendl_fd("ERROR", 2);
 			ft_printf("Invalid Map, there is a Invalid Character, ");
 			ft_printf("please try a different file\n");
 			exit(EXIT_FAILURE);
@@ -64,7 +64,7 @@ static void	check_map_empty_line(char *map)
 	{
 		if (map[0] == '\n' || (map[i] == '\n' && (map[i + 1]) == '\n'))
 		{
-			ft_printf("Error\n");
+			ft_putendl_fd("ERROR", 2);
 			ft_printf("Invalid Map,there is a Empty Line, ");
 			ft_printf("please try a different file\n");
 			exit (EXIT_FAILURE);

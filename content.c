@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/27 12:04:30 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/04 18:23:25 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/05 15:22:20 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ t_game	*element_position(char **map, t_game *game)
 		{
 			if(map[line][col] == 'P')
 			{
-				game->player_position_x = line;
-				game->player_position_y = col;
+				game->player_position_x = col;
+				game->player_position_y = line;
 			}
 			if(map[line][col] == 'E')
 			{
-				game->exit_position_x = line;
-				game->exit_position_y = col;
+				game->exit_position_x = col;
+				game->exit_position_y = line;
 			}
 			col++;
 		}

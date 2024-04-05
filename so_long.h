@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/05 11:31:33 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/05 18:11:33 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,7 @@ typedef struct s_image
 	mlx_image_t		*rock;
 	mlx_image_t		*exit;
 	mlx_image_t		*carrot;
-	mlx_image_t		*player_wait;
-	mlx_image_t		*player_up;
-	mlx_image_t		*player_down;
-	mlx_image_t		*player_right;
-	mlx_image_t		*player_left;
+	mlx_image_t		*player;
 	// mlx_image_t			*bonus;
 	// mlx_image_t			*enemy;
 } t_image;
@@ -58,6 +54,7 @@ char	*read_map(char *map);
 // Checkers
 void	str_map_checkers(char *map);
 int		array_map_checkers(char **array_map);
+void	collect_all_collectable(t_game *game);
 
 // Data 
 t_game	*turn_file_into_data(char *argv);

@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/04/02 15:12:34 by edribeir      ########   odam.nl          #
+#    Updated: 2024/04/05 16:12:49 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SOURCE = so_long.c \
 			texture_functions.c \
 			add_to_window.c \
 			moviments.c \
+			end_game_checkers.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 

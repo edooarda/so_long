@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 14:28:44 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/04 18:35:58 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/05 12:04:52 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,18 @@ static void	add_texture_character(t_game *game, int line, int col)
 	else if (game->map[line][col] == 'P')
 	{
 		if (mlx_image_to_window(game->mlx, game->textures->player_wait,
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
+		if (mlx_image_to_window(game->mlx, game->textures->player_up,
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
+		if (mlx_image_to_window(game->mlx, game->textures->player_down,
+			col * PIXELS, line * PIXELS) < 0)
+		error_message("Failed to put hero image to window");
+		if (mlx_image_to_window(game->mlx, game->textures->player_right,
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
+		if (mlx_image_to_window(game->mlx, game->textures->player_left,
 				col * PIXELS, line * PIXELS) < 0)
 			error_message("Failed to put hero image to window");
 	}

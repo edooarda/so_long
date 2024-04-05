@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 15:11:46 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/04 18:35:41 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/05 12:07:51 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 t_game	*move_right(t_game *game)
 {
 	ft_printf("this is old player position %i\n", game->player_position_x);
-	game->textures->player_wait->instances[0].x += PIXELS;
+	game->textures->player_wait->enabled = false;
+	game->textures->player_right->instances[0].x += PIXELS;
 	game->player_position_x++;
 	ft_printf("this is new player position %i\n", game->player_position_x);
 	return (game);
@@ -24,7 +25,8 @@ t_game	*move_right(t_game *game)
 t_game	*move_left(t_game *game)
 {
 	ft_printf("this is old player position %i\n", game->player_position_x);
-	game->textures->player_wait->instances[0].x -= PIXELS;
+	game->textures->player_wait->enabled = false;
+	game->textures->player_left->instances[0].x -= PIXELS;
 	game->player_position_x--;
 	ft_printf("this is new player position %i\n", game->player_position_x);
 	return (game);
@@ -33,7 +35,8 @@ t_game	*move_left(t_game *game)
 t_game	*move_down(t_game *game)
 {
 	ft_printf("this is old player position %i\n", game->player_position_y);
-	game->textures->player_wait->instances[0].y += PIXELS;
+	game->textures->player_wait->enabled = false;
+	game->textures->player_down->instances[0].y += PIXELS;
 	game->player_position_y++;
 	ft_printf("this is new player position %i\n", game->player_position_y);
 	return (game);
@@ -43,7 +46,8 @@ t_game	*move_up(t_game *game)
 {
 	ft_printf("this is old player position %i\n", game->player_position_y);
 
-	game->textures->player_wait->instances[0].y -= PIXELS;
+	game->textures->player_wait->enabled = false;
+	game->textures->player_up->instances[0].y -= PIXELS;
 	game->player_position_y--;
 	ft_printf("this is new player position %i\n", game->player_position_y);
 	return (game);

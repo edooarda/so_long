@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/28 13:31:13 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/04 17:14:00 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/05 11:48:37 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 t_image	*add_player_texture(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t	*hero_wait;
+	mlx_texture_t	*hero_up;
+	mlx_texture_t	*hero_down;
+	mlx_texture_t	*hero_right;
+	mlx_texture_t	*hero_left;
 
 	hero_wait = mlx_load_png("texture/hero_wait.png");
 	if (hero_wait == NULL)
@@ -23,18 +27,39 @@ t_image	*add_player_texture(mlx_t *mlx, t_image *image)
 	if (image->player_wait == NULL)
 		error_message("Problem adding texture P.Image");
 	mlx_delete_texture(hero_wait);
-	// image->player_down = mlx_load_png("texture/hero_down.png");
-	// if (image->player_down == NULL)
-	// 	error_message("Problem with loading D.H Texture");
-	// image->player_up = mlx_load_png("texture/hero_up.png");
-	// if (image->player_up == NULL)
-	// 	error_message("Problem with loading U.H Texture");
-	// image->player_right = mlx_load_png("texture/hero_right.png");
-	// if (image->player_right == NULL)
-	// 	error_message("Problem with loading R.H Texture");
-	// image->player_left = mlx_load_png("texture/hero_left.png");
-	// if (image->player_left == NULL)
-	// 	error_message("Problem with loading L.H Texture");
+
+	hero_up = mlx_load_png("texture/hero_up.png");
+	if (hero_up == NULL)
+		error_message("Problem with loading PU.Image");
+	image->player_up = mlx_texture_to_image(mlx, hero_up);
+	if (image->player_up == NULL)
+		error_message("Problem adding texture PU.Image");
+	mlx_delete_texture(hero_up);
+
+	hero_down = mlx_load_png("texture/hero_down.png");
+	if (hero_down == NULL)
+		error_message("Problem with loading PD.Image");
+	image->player_down = mlx_texture_to_image(mlx, hero_down);
+	if (image->player_down == NULL)
+		error_message("Problem adding texture PD.Image");
+	mlx_delete_texture(hero_down);
+
+	hero_right = mlx_load_png("texture/hero_right.png");
+	if (hero_right == NULL)
+		error_message("Problem with loading PR.Image");
+	image->player_right = mlx_texture_to_image(mlx, hero_right);
+	if (image->player_right == NULL)
+		error_message("Problem adding texture PR.Image");
+	mlx_delete_texture(hero_right);
+
+	hero_left = mlx_load_png("texture/hero_left.png");
+	if (hero_left == NULL)
+		error_message("Problem with loading PL.Image");
+	image->player_left = mlx_texture_to_image(mlx, hero_left);
+	if (image->player_left == NULL)
+		error_message("Problem adding texture PL.Image");
+	mlx_delete_texture(hero_left);
+
 	return (image);
 }
 

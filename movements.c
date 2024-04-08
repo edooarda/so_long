@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   moviments.c                                        :+:    :+:            */
+/*   movements.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 15:11:46 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/05 18:11:16 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/08 17:25:05 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// TO DO: change C into '0' to not be collectable again!
-// need to discovery instance number position
 t_game	*move_right(t_game *game)
 { 
 	if (game->map[game->player_position_y][game->player_position_x + 1] != '1')
 	{
-		ft_printf("cenourinhas: %i\n", game->collectable);
-		if (game->map[game->player_position_y][game->player_position_x + 1] == 'C')
-		{
-			game->textures->carrot->instances[0].enabled = false;
-			game->collectable--;
-		}
-		ft_printf("cenourinhas: %i\n", game->collectable);
 		game->textures->player->instances[0].x += PIXELS;
 		game->player_position_x++;
 		game->moves++;
+		collectable_instance_checker(game->player_position_y, game->player_position_x, game);
 	}
 	else
 		ft_putendl_fd("Yeow! That hurts!", 1);
@@ -39,14 +31,10 @@ t_game	*move_left(t_game *game)
 {
 	if (game->map[game->player_position_y][game->player_position_x - 1] != '1')
 	{
-		if (game->map[game->player_position_y][game->player_position_x - 1] == 'C')
-		{
-			game->textures->carrot->instances[0].enabled = false;
-			game->collectable--;
-		}
 		game->textures->player->instances[0].x -= PIXELS;
 		game->player_position_x--;
 		game->moves++;
+		collectable_instance_checker(game->player_position_y, game->player_position_x, game);
 	}
 	else
 		ft_putendl_fd("Yeow! That hurts!", 1);
@@ -58,14 +46,10 @@ t_game	*move_down(t_game *game)
 {
 	if (game->map[game->player_position_y + 1][game->player_position_x] != '1')
 	{
-		if (game->map[game->player_position_y + 1][game->player_position_x] == 'C')
-		{
-			game->textures->carrot->enabled = false;
-			game->collectable--;
-		}
 		game->textures->player->instances[0].y += PIXELS;
 		game->player_position_y++;
 		game->moves++;
+		collectable_instance_checker(game->player_position_y, game->player_position_x, game);
 	}
 	else
 		ft_putendl_fd("Yeow! That hurts!", 1);
@@ -77,14 +61,10 @@ t_game	*move_up(t_game *game)
 {
 	if (game->map[game->player_position_y - 1][game->player_position_x] != '1')
 	{
-		if (game->map[game->player_position_y - 1][game->player_position_x] == 'C')
-		{
-			game->textures->carrot->enabled = false;
-			game->collectable--;
-		}
 		game->textures->player->instances[0].y -= PIXELS;
 		game->player_position_y--;
 		game->moves++;
+		collectable_instance_checker(game->player_position_y, game->player_position_x, game);
 	}
 	else
 		ft_putendl_fd("Yeow! That hurts!", 1);

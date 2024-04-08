@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/04 18:33:18 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/08 17:25:37 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	error_message(char *message)
 void	checker_file_extension(char *file)
 {
 	int	len;
-	
+
 	len = ft_strlen(file);
 	if (len < 4 || ft_strncmp(&file[len - 4], ".ber", 4))
 		error_message("Please, use a .ber file for the Map");
@@ -30,16 +30,18 @@ void	checker_file_extension(char *file)
 
 int32_t	main(int argc, char **argv)
 {
-	t_game *game;
+	t_game	*game;
 
 	if (argc != 2)
 		error_message("Insert ONE FILE! Just ONE MAP!");
 	checker_file_extension(argv[1]);
-	game = turn_file_into_data(argv[1]); 
-	if (!(game->mlx = mlx_init((game->width * PIXELS), (game->height * PIXELS), "so_long", true)))
+	game = turn_file_into_data(argv[1]);
+	game->mlx = mlx_init((game->width * PIXELS),
+			(game->height * PIXELS), "so_long", true);
+	if (!game->mlx)
 	{
-		puts(mlx_strerror(mlx_errno));
-		return(EXIT_FAILURE);
+		puts (mlx_strerror(mlx_errno));
+		return (EXIT_FAILURE);
 	}
 	game->textures = initialize_image_struct(game);
 	add_floor_window(game);

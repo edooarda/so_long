@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/27 12:04:30 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/05 15:22:20 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/08 17:17:03 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_game	*collectable_counter(char **map, t_game *game)
 
 	collectible = 0;
 	line = 0;
-	while(map[line])
+	while (map[line])
 	{
 		col = 0;
-		while(map[line][col])
+		while (map[line][col])
 		{
 			if (map[line][col] == 'C')
 				collectible++;
@@ -32,6 +32,7 @@ t_game	*collectable_counter(char **map, t_game *game)
 		line++;
 	}
 	game->collectable = collectible;
+	game->total_collectable = collectible;
 	return (game);
 }
 
@@ -44,14 +45,14 @@ t_game	*element_position(char **map, t_game *game)
 	while (map[line])
 	{
 		col = 0;
-		while(map[line][col])
+		while (map[line][col])
 		{
-			if(map[line][col] == 'P')
+			if (map[line][col] == 'P')
 			{
 				game->player_position_x = col;
 				game->player_position_y = line;
 			}
-			if(map[line][col] == 'E')
+			if (map[line][col] == 'E')
 			{
 				game->exit_position_x = col;
 				game->exit_position_y = line;
@@ -66,7 +67,7 @@ t_game	*element_position(char **map, t_game *game)
 t_game	*initialize_game_struct(char **map, int height)
 {
 	t_game	*game;
-	
+
 	game = (t_game *)ft_calloc(1, sizeof(t_game));
 	if (game == NULL)
 		error_message("Memory Allocation Failed");
@@ -78,11 +79,12 @@ t_game	*initialize_game_struct(char **map, int height)
 	game->width = ft_strlen(map[0]);
 	return (game);
 }
+
 t_image	*initialize_image_struct(t_game *game)
 {
 	t_image	*textures;
 
-	textures = ft_calloc(1 , sizeof(t_image));
+	textures = ft_calloc(1, sizeof(t_image));
 	if (textures == NULL)
 		error_message("Memory Allocation Failed");
 	textures = add_floor_texture(game->mlx, textures);

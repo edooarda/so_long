@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/05 18:11:33 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/08 17:24:15 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,13 @@ typedef struct s_image
 	mlx_image_t		*exit;
 	mlx_image_t		*carrot;
 	mlx_image_t		*player;
-	// mlx_image_t			*bonus;
-	// mlx_image_t			*enemy;
-} t_image;
+}	t_image;
 
 typedef struct s_game
 {
 	char		**map;
 	int			moves;
+	int			total_collectable;
 	int			collectable;
 	int			player_position_x;
 	int			player_position_y;
@@ -45,8 +44,7 @@ typedef struct s_game
 	int			width;
 	t_image		*textures;
 	mlx_t		*mlx;
-} t_game;
-
+}	t_game;
 
 void	error_message(char *message);
 char	*read_map(char *map);
@@ -55,6 +53,7 @@ char	*read_map(char *map);
 void	str_map_checkers(char *map);
 int		array_map_checkers(char **array_map);
 void	collect_all_collectable(t_game *game);
+t_game	*collectable_instance_checker(int player_y, int player_x, t_game *game);
 
 // Data 
 t_game	*turn_file_into_data(char *argv);
@@ -62,7 +61,6 @@ t_game	*initialize_game_struct(char **map, int height);
 t_image	*initialize_image_struct(t_game *game);
 t_game	*element_position(char **map, t_game *game);
 t_game	*collectable_counter(char **map, t_game *game);
-
 
 //Texture 
 t_image	*add_wall_texture(mlx_t *mlx, t_image *image);

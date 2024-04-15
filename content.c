@@ -6,19 +6,19 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/27 12:04:30 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/08 17:17:03 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/15 18:01:37 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_game	*collectable_counter(char **map, t_game *game)
+int	collectable_counter(char **map)
 {
-	int	collectible;
+	int	collectable;
 	int	line;
 	int	col;
 
-	collectible = 0;
+	collectable = 0;
 	line = 0;
 	while (map[line])
 	{
@@ -26,17 +26,15 @@ t_game	*collectable_counter(char **map, t_game *game)
 		while (map[line][col])
 		{
 			if (map[line][col] == 'C')
-				collectible++;
+				collectable++;
 			col++;
 		}
 		line++;
 	}
-	game->collectable = collectible;
-	game->total_collectable = collectible;
-	return (game);
+	return (collectable);
 }
 
-t_game	*element_position(char **map, t_game *game)
+void	element_position(char **map, t_game *game)
 {
 	int		col;
 	int		line;
@@ -61,7 +59,7 @@ t_game	*element_position(char **map, t_game *game)
 		}
 		line++;
 	}
-	return (game);
+	return ;
 }
 
 t_game	*initialize_game_struct(char **map, int height)
@@ -73,8 +71,8 @@ t_game	*initialize_game_struct(char **map, int height)
 		error_message("Memory Allocation Failed");
 	game->map = map;
 	game->moves = 0;
-	game = collectable_counter(map, game);
-	game = element_position(map, game);
+	game->collectable = collectable_counter(map);
+	element_position(map, game);
 	game->height = height;
 	game->width = ft_strlen(map[0]);
 	return (game);

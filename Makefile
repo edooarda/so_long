@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/04/08 17:14:57 by edribeir      ########   odam.nl          #
+#    Updated: 2024/04/15 17:53:58 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SOURCE = so_long.c \
 			add_to_window.c \
 			movements.c \
 			end_game_checkers.c \
+			map_path_checker.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/05 15:54:17 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/08 17:31:34 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/15 18:00:37 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_game	*collectable_instance_checker(int player_y, int player_x, t_game *game)
 {
-	int	collectable;
+	size_t	collectable;
 
 	collectable = 0;
 	if (game->map[player_y][player_x] == 'C')
 	{
-		while (collectable < game->total_collectable)
+		while (collectable < game->textures->carrot->count)
 		{
 			if (((game->textures->carrot->instances[collectable].x) / PIXELS) == player_x
 				&& ((game->textures->carrot->instances[collectable].y) / PIXELS) == player_y)

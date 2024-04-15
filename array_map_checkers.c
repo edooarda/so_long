@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/26 11:30:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/02 10:59:45 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/15 18:02:19 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	array_map_checkers(char **array_map)
 
 	height = array_map_shape(array_map);
 	array_map_wall(height, array_map);
-	// TO DO: CHECK WITH there is a viable Path
-
+	// path_finder_checker(array_map, height);
 	return (height);
 }

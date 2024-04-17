@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 14:28:44 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/05 15:16:33 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/17 18:33:26 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,24 @@ void	add_floor_window(t_game *game)
 		line++;
 	}
 }
+static void	add_player_direction_textures(t_game *game, int line, int col)
+{
+	if (mlx_image_to_window(game->mlx, game->textures->player,
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
+	if (mlx_image_to_window(game->mlx, game->textures->p_up,
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
+	if (mlx_image_to_window(game->mlx, game->textures->p_down,
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
+	if (mlx_image_to_window(game->mlx, game->textures->p_left,
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
+	if (mlx_image_to_window(game->mlx, game->textures->p_right,
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
+}
 
 static void	add_texture_character(t_game *game, int line, int col)
 {
@@ -54,9 +72,7 @@ static void	add_texture_character(t_game *game, int line, int col)
 	}
 	else if (game->map[line][col] == 'P')
 	{
-		if (mlx_image_to_window(game->mlx, game->textures->player,
-				col * PIXELS, line * PIXELS) < 0)
-			error_message("Failed to put hero image to window");
+		add_player_direction_textures(game, line, col);
 	}
 }
 

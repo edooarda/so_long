@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/08 17:25:37 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/17 15:44:30 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,21 @@ int32_t	main(int argc, char **argv)
 	checker_file_extension(argv[1]);
 	game = turn_file_into_data(argv[1]);
 	game->mlx = mlx_init((game->width * PIXELS),
-			(game->height * PIXELS), "so_long", true);
+			(game->height * PIXELS + 22), "so_long", true);
+	ft_putendl_fd("Let's Play! Mr Rabbit is hungry!", 1);
 	if (!game->mlx)
 	{
-		puts (mlx_strerror(mlx_errno));
+		error_message ("MLX problem");
+		free_map(game->map, game->height);
 		return (EXIT_FAILURE);
 	}
 	game->textures = initialize_image_struct(game);
 	add_floor_window(game);
 	add_texture_window(game);
+	message_to_screen(game);
 	mlx_key_hook(game->mlx, ft_hook_moves, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	return (EXIT_SUCCESS);
+	free_map(game->map, game->height);
+	return (free(game->textures), free(game), (EXIT_SUCCESS));
 }

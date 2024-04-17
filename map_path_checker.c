@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/15 10:59:57 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/15 17:53:07 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/17 12:13:21 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,49 +25,24 @@ void	free_map(char **map, int height)
 	free(map);
 }
 
-static int	check_path(t_game *temp, int x, int y)
+static void	check_path(t_game *temp, int y, int x)
 {
-	if (temp->map[x][y] == '1')
+	// printf("position player first[%i][%i]\n", y, x);
+	if (temp->map[y][x] == '1' || temp->map[y][x] == 'E')
 	{
-		printf("position player [%i][%i]\n",y, x);
-		printf("			WaLL\n");
-		return (0);
+		if (temp->map[y][x] == 'E')
+			temp->exit_position_x = 1;
+		return ;
 	}
-	if (temp->map[x][y] == 'C')
-	{
-		printf("			Less Carrot\n");
+	if (temp->map[y][x] == 'C')
 		temp->collectable--;
-	}
-	if (temp->map[x][y] == 'E')
-	{
-		printf("			Exit here\n");
-		temp->exit_position_x = 1;
-		return (0);
-	}
-	temp->map[x][y] = '1';
-	printf("			Change for 1!!!\n");
-	printf("position player [%i][%i]\n",y, x);
-	if (check_path(temp, y + 1, x))
-	{
-		printf("			UP\n");
-		return (1);
-	}
-	if (check_path(temp, y - 1, x))
-	{
-		printf("			Down\n");
-		return (1);
-	}
-	if (check_path(temp, y, x + 1))
-	{
-		printf("			Right\n");
-		return (1);
-	}
-	if (check_path(temp, y, x - 1))
-	{
-		printf("			Left\n");
-		return (1);
-	}
-	return (0);
+	temp->map[y][x] = '1';
+	// printf("			Change for 1!!!\n");
+	// printf("position player [%i][%i]\n", y, x);
+	check_path(temp, y + 1, x);
+	check_path(temp, y - 1, x);
+	check_path(temp, y, x + 1);
+	check_path(temp, y, x - 1);
 }
 
 void	path_finder_checker(char **map, int height)
@@ -75,11 +50,9 @@ void	path_finder_checker(char **map, int height)
 	t_game	temp;
 	int		i;
 
-
 	temp.collectable = collectable_counter(map);
 	element_position(map, &temp);
 	temp.height = height;
-	temp.exit_position_x = 0;
 	temp.map = (char **)ft_calloc(height, sizeof(char *));
 	if (temp.map == NULL)
 		error_message("Memory Allocation Fail");
@@ -87,12 +60,11 @@ void	path_finder_checker(char **map, int height)
 	while (i < height)
 	{
 		temp.map[i] = ft_strdup(map[i]);
-		printf("		%s\n", temp.map[i]);
+		// printf("		%s\n", temp.map[i]);
 		i++;
 	}
-	printf("position player first[%i][%i]\n",temp.player_position_y, temp.player_position_x);
-	check_path(&temp, temp.player_position_x, temp.player_position_y);
-	if (!(temp.exit_position_x == 1 && temp.collectable == 0))
+	check_path(&temp, temp.player_position_y, temp.player_position_x);
+	if (temp.exit_position_x != 1 || temp.collectable != 0)
 		error_message("No valid path available");
 	free_map(temp.map, temp.height);
 }

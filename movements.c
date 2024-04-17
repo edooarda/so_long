@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 15:11:46 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/08 17:25:05 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/17 18:33:04 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_game	*move_right(t_game *game)
 	else
 		ft_putendl_fd("Yeow! That hurts!", 1);
 	collect_all_collectable(game);
+	direction_texture(game, 'R');
 	return (game);
 }
 
@@ -39,6 +40,7 @@ t_game	*move_left(t_game *game)
 	else
 		ft_putendl_fd("Yeow! That hurts!", 1);
 	collect_all_collectable(game);
+	direction_texture(game, 'L');
 	return (game);
 }
 
@@ -54,6 +56,7 @@ t_game	*move_down(t_game *game)
 	else
 		ft_putendl_fd("Yeow! That hurts!", 1);
 	collect_all_collectable(game);
+	direction_texture(game, 'D');
 	return (game);
 }
 
@@ -69,6 +72,7 @@ t_game	*move_up(t_game *game)
 	else
 		ft_putendl_fd("Yeow! That hurts!", 1);
 	collect_all_collectable(game);
+	direction_texture(game, 'U');
 	return (game);
 }
 
@@ -94,5 +98,7 @@ void	ft_hook_moves(mlx_key_data_t keydata, void *mlx)
 	if ((keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
 			|| (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS))
 		move_right(mlx);
+	msg_moves_screen(game);
+	msg_collectable_screen(game);
 }
 

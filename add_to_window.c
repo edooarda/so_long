@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 14:28:44 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 12:21:26 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 19:10:34 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,36 +31,37 @@ void	add_floor_window(t_game *game)
 		line++;
 	}
 }
+
 static void	add_player_direction_textures(t_game *game, int line, int col)
 {
 	if (mlx_image_to_window(game->mlx, game->textures->player,
-				col * PIXELS, line * PIXELS) < 0)
-			error_message("Failed to put hero image to window");
+			col * PIXELS, line * PIXELS) < 0)
+		error_message("Failed to put hero image to window");
 	if (mlx_image_to_window(game->mlx, game->textures->p_up,
-				col * PIXELS, line * PIXELS) < 0)
-			error_message("Failed to put hero image to window");
+			col * PIXELS, line * PIXELS) < 0)
+		error_message("Failed to put hero image to window");
 	if (mlx_image_to_window(game->mlx, game->textures->p_down,
-				col * PIXELS, line * PIXELS) < 0)
-			error_message("Failed to put hero image to window");
+			col * PIXELS, line * PIXELS) < 0)
+		error_message("Failed to put hero image to window");
 	if (mlx_image_to_window(game->mlx, game->textures->p_left,
-				col * PIXELS, line * PIXELS) < 0)
-			error_message("Failed to put hero image to window");
+			col * PIXELS, line * PIXELS) < 0)
+		error_message("Failed to put hero image to window");
 	if (mlx_image_to_window(game->mlx, game->textures->p_right,
-				col * PIXELS, line * PIXELS) < 0)
-			error_message("Failed to put hero image to window");
+			col * PIXELS, line * PIXELS) < 0)
+		error_message("Failed to put hero image to window");
 }
 
 static void	add_texture_character(t_game *game, int line, int col)
 {
 	if (game->map[line][col] == '1')
 	{
-		if (mlx_image_to_window(game->mlx, game->textures->rock,
+		if (mlx_image_to_window(game->mlx, game->textures->wall,
 				col * PIXELS, line * PIXELS) < 0)
 			error_message("Failed to put wall image to window");
 	}
 	else if (game->map[line][col] == 'C')
 	{
-		if (mlx_image_to_window(game->mlx, game->textures->carrot,
+		if (mlx_image_to_window(game->mlx, game->textures->collect,
 				col * PIXELS, line * PIXELS) < 0)
 			error_message("Failed to put collectable image to window");
 	}

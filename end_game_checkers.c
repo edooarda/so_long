@@ -6,39 +6,39 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/05 15:54:17 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 14:18:36 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 19:11:02 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_game	*collectable_instance_checker(int player_y, int player_x, t_game *game)
+t_game	*collect_checker(int y, int x, t_game *game)
 {
-	size_t	collectable;
+	size_t	cll;
 
-	collectable = 0;
-	if (game->map[player_y][player_x] == 'C')
+	cll = 0;
+	if (game->map[y][x] == 'C')
 	{
-		while (collectable < game->textures->carrot->count)
+		while (cll < game->textures->collect->count)
 		{
-			if (((game->textures->carrot->instances[collectable].x) / PIXELS) == player_x
-				&& ((game->textures->carrot->instances[collectable].y) / PIXELS) == player_y)
+			if (((game->textures->collect->instances[cll].x) / PIXELS) == x
+				&& ((game->textures->collect->instances[cll].y) / PIXELS) == y)
 			{
-				game->textures->carrot->instances[collectable].enabled = false;
+				game->textures->collect->instances[cll].enabled = false;
 				game->collectable--;
-				game->map[player_y][player_x] = '0';
+				game->map[y][x] = '0';
 			}
-			collectable++;
+			cll++;
 		}
 	}
 	return (game);
 }
 
-void	collect_all_collectable(t_game *game)
+void	finish_game_checker(t_game *game)
 {
 	ft_printf("Moves: %i\n", game->moves);
 	if (game->collectable == 0)
-		ft_printf("Mr Rabbit is happy!! Go Home 🎉!\n");
+		ft_putendl_fd("	Mr Rabbit is happy!! Go Home 🎉!", 1);
 	if (game->collectable == 0
 		&& game->player_position_x == game->exit_position_x
 		&& game->player_position_y == game->exit_position_y)
@@ -53,7 +53,8 @@ void	collect_all_collectable(t_game *game)
 		&& game->player_position_y == game->exit_position_y)
 	{
 		ft_printf("\n");
-		ft_putendl_fd("Are you missing carrots 🥕? Mr Rabbit wants them ALL!", 2);
+		ft_putendl_fd("Are you missing carrots 🥕?", 2);
+		ft_putendl_fd("Mr Rabbit wants them ALL!", 2);
 	}
 	touch_enemies(game, game->player_position_y, game->player_position_x);
 }

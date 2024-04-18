@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/28 13:31:13 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/05 14:20:32 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 19:10:19 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,29 @@ t_image	*add_exit_texture(mlx_t *mlx, t_image *image)
 
 t_image	*add_collectable_texture(mlx_t *mlx, t_image *image)
 {
-	mlx_texture_t	*carrot;
+	mlx_texture_t	*collect;
 
-	carrot = mlx_load_png("texture/carrot.png");
-	if (carrot == NULL)
+	collect = mlx_load_png("texture/carrot.png");
+	if (collect == NULL)
 		error_message("Problem with loading C.Image");
-	image->carrot = mlx_texture_to_image(mlx, carrot);
-	if (image->carrot == NULL)
+	image->collect = mlx_texture_to_image(mlx, collect);
+	if (image->collect == NULL)
 		error_message("Problem adding texture C.Image");
-	mlx_delete_texture(carrot);
+	mlx_delete_texture(collect);
 	return (image);
 }
 
 t_image	*add_wall_texture(mlx_t *mlx, t_image *image)
 {
-	mlx_texture_t	*rock;
+	mlx_texture_t	*wall;
 
-	rock = mlx_load_png("texture/rock.png");
-	if (rock == NULL)
+	wall = mlx_load_png("texture/tree.png");
+	if (wall == NULL)
 		error_message("Problem with loading W.Image");
-	image->rock = mlx_texture_to_image(mlx, rock);
-	if (image->rock == NULL)
+	image->wall = mlx_texture_to_image(mlx, wall);
+	if (image->wall == NULL)
 		error_message("Problem adding texture W.Image");
-	mlx_delete_texture(rock);
+	mlx_delete_texture(wall);
 	return (image);
 }
 
@@ -72,7 +72,7 @@ t_image	*add_floor_texture(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t	*grass;
 
-	grass = mlx_load_png("texture/floor.png");
+	grass = mlx_load_png("texture/grass.png");
 	if (grass == NULL)
 		error_message("Problem with loading F.Image");
 	image->floor = mlx_texture_to_image(mlx, grass);

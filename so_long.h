@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 14:14:18 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 19:09:24 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 typedef struct s_image
 {
 	mlx_image_t		*floor;
-	mlx_image_t		*rock;
+	mlx_image_t		*wall;
 	mlx_image_t		*exit;
-	mlx_image_t		*carrot;
+	mlx_image_t		*collect;
 	mlx_image_t		*player;
 	mlx_image_t		*p_up;
 	mlx_image_t		*p_down;
@@ -56,13 +56,13 @@ typedef struct s_game
 // Checkers
 void	str_map_checkers(char *map);
 int		array_map_checkers(char **array_map);
-void	collect_all_collectable(t_game *game);
-t_game	*collectable_instance_checker(int player_y, int player_x, t_game *game);
+void	finish_game_checker(t_game *game);
+t_game	*collect_checker(int y, int x, t_game *game);
 void	path_finder_checker(char **map, int height);
 
 // Data
-t_game	*turn_file_into_data(char *argv);
-t_game	*initialize_game_struct(char **map, int height);
+t_game	turn_file_into_data(char *argv);
+t_game	initialize_game_struct(char **map, int height);
 t_image	*initialize_image_struct(t_game *game);
 void	element_position(char **map, t_game *game);
 int		collectable_counter(char **map);
@@ -84,10 +84,10 @@ void	error_message(char *message);
 void	message_to_screen(t_game *game);
 void	msg_moves_screen(t_game *game);
 void	msg_collectable_screen(t_game *game);
+void	message_exit_clean(t_game *game, char *message);
 
 //
 void	free_map(char **map, int height);
-char	*read_map(char *map, char *map_read);
 
 // Bonus
 t_image *add_player_direction_texture_y(mlx_t *mlx, t_image *image);

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/17 17:05:07 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 12:14:43 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 18:06:35 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_image	*add_player_direction_texture_y(mlx_t *mlx, t_image *image)
 	image = add_player_direction_texture_2(mlx, image);
 	return (image);
 }
+
 static void	direction_texture_y(t_game *game, char c)
 {
 	if (c == 'U')
@@ -63,24 +64,25 @@ static void	direction_texture_y(t_game *game, char c)
 		game->textures->player->instances->enabled = false;
 		disable_sprites(game);
 		game->textures->p_up->instances->enabled = true;
-		game->textures->player->instances[0].y -= PIXELS;
-		game->textures->p_down->instances[0].y -= PIXELS;
-		game->textures->p_right->instances[0].y -= PIXELS;
-		game->textures->p_left->instances[0].y -= PIXELS;
-		game->textures->p_up->instances[0].y -= PIXELS;
+		game->textures->player->instances->y -= PIXELS;
+		game->textures->p_down->instances->y -= PIXELS;
+		game->textures->p_right->instances->y -= PIXELS;
+		game->textures->p_left->instances->y -= PIXELS;
+		game->textures->p_up->instances->y -= PIXELS;
 	}
 	else if (c == 'D')
 	{
 		game->textures->player->instances->enabled = false;
 		disable_sprites(game);
 		game->textures->p_down->instances->enabled = true;
-		game->textures->player->instances[0].y += PIXELS;
-		game->textures->p_up->instances[0].y += PIXELS;
-		game->textures->p_down->instances[0].y += PIXELS;
-		game->textures->p_right->instances[0].y += PIXELS;
-		game->textures->p_left->instances[0].y += PIXELS;
+		game->textures->player->instances->y += PIXELS;
+		game->textures->p_up->instances->y += PIXELS;
+		game->textures->p_down->instances->y += PIXELS;
+		game->textures->p_right->instances->y += PIXELS;
+		game->textures->p_left->instances->y += PIXELS;
 	}
 }
+
 void	direction_texture(t_game *game, char c)
 {
 	if (c == 'L')
@@ -88,22 +90,22 @@ void	direction_texture(t_game *game, char c)
 		game->textures->player->instances->enabled = false;
 		disable_sprites(game);
 		game->textures->p_left->instances->enabled = true;
-		game->textures->player->instances[0].x -= PIXELS;
-		game->textures->p_left->instances[0].x -= PIXELS;
-		game->textures->p_up->instances[0].x -= PIXELS;
-		game->textures->p_down->instances[0].x -= PIXELS;
-		game->textures->p_right->instances[0].x -= PIXELS;
+		game->textures->player->instances->x -= PIXELS;
+		game->textures->p_left->instances->x -= PIXELS;
+		game->textures->p_up->instances->x -= PIXELS;
+		game->textures->p_down->instances->x -= PIXELS;
+		game->textures->p_right->instances->x -= PIXELS;
 	}
 	else if (c == 'R')
 	{
 		game->textures->player->instances->enabled = false;
 		disable_sprites(game);
 		game->textures->p_right->instances->enabled = true;
-		game->textures->player->instances[0].x += PIXELS;
-		game->textures->p_right->instances[0].x += PIXELS;
-		game->textures->p_up->instances[0].x += PIXELS;
-		game->textures->p_down->instances[0].x += PIXELS;
-		game->textures->p_left->instances[0].x += PIXELS;
+		game->textures->player->instances->x += PIXELS;
+		game->textures->p_right->instances->x += PIXELS;
+		game->textures->p_up->instances->x += PIXELS;
+		game->textures->p_down->instances->x += PIXELS;
+		game->textures->p_left->instances->x += PIXELS;
 	}
 	else
 		direction_texture_y(game, c);

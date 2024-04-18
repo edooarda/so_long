@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/27 12:04:30 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 12:15:33 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 18:16:43 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,16 @@ void	element_position(char **map, t_game *game)
 	return ;
 }
 
-t_game	*initialize_game_struct(char **map, int height)
+t_game	initialize_game_struct(char **map, int height)
 {
-	t_game	*game;
+	t_game	game;
 
-	game = (t_game *)ft_calloc(1, sizeof(t_game));
-	if (game == NULL)
-	{
-		error_message("Memory Allocation Failed");
-		free(game);
-	}
-	game->map = map;
-	game->moves = 0;
-	game->collectable = collectable_counter(map);
-	element_position(map, game);
-	game->height = height;
-	game->width = ft_strlen(map[0]);
+	game.map = map;
+	game.moves = 0;
+	game.collectable = collectable_counter(map);
+	element_position(map, &game);
+	game.height = height;
+	game.width = ft_strlen(map[0]);
 	return (game);
 }
 

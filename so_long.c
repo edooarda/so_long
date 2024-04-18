@@ -6,11 +6,19 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/17 15:44:30 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 18:47:11 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	message_exit_clean(t_game *game, char *message)
+{
+	free_map(game->map, game->height);
+	error_message(message);
+	// free(game->textures);
+	// exit(EXIT_FAILURE);
+}
 
 void	error_message(char *message)
 {
@@ -30,28 +38,24 @@ void	checker_file_extension(char *file)
 
 int32_t	main(int argc, char **argv)
 {
-	t_game	*game;
+	t_game	game;
 
 	if (argc != 2)
 		error_message("Insert ONE FILE! Just ONE MAP!");
 	checker_file_extension(argv[1]);
 	game = turn_file_into_data(argv[1]);
-	game->mlx = mlx_init((game->width * PIXELS),
-			(game->height * PIXELS + 22), "so_long", true);
+	game.mlx = mlx_init((game.width * PIXELS),
+			(game.height * PIXELS + 22), "so_long", true);
 	ft_putendl_fd("Let's Play! Mr Rabbit is hungry!", 1);
-	if (!game->mlx)
-	{
-		error_message ("MLX problem");
-		free_map(game->map, game->height);
-		return (EXIT_FAILURE);
-	}
-	game->textures = initialize_image_struct(game);
-	add_floor_window(game);
-	add_texture_window(game);
-	message_to_screen(game);
-	mlx_key_hook(game->mlx, ft_hook_moves, game);
-	mlx_loop(game->mlx);
-	mlx_terminate(game->mlx);
-	free_map(game->map, game->height);
-	return (free(game->textures), free(game), (EXIT_SUCCESS));
+	if (!game.mlx)
+		message_exit_clean(&game, "MLX problem");
+	game.textures = initialize_image_struct(&game);
+	add_floor_window(&game);
+	add_texture_window(&game);
+	message_to_screen(&game);
+	mlx_key_hook(game.mlx, ft_hook_moves, &game);
+	mlx_loop(game.mlx);
+	mlx_terminate(game.mlx);
+	free_map(game.map, game.height);
+	return (free(game.textures), (EXIT_SUCCESS));
 }

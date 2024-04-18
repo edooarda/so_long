@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/04/18 12:29:57 by edribeir      ########   odam.nl          #
+#    Updated: 2024/04/18 19:07:40 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,9 @@ SOURCE = so_long.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 
-all: libmlx $(NAME)
+all: $(MLXLIB) $(NAME)
 
-libmlx:
+$(MLXLIB):
 	@cmake $(LIBMLX) -DEBUG=1 -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 $(LIBFT):

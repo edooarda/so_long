@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/18 12:10:58 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 14:50:41 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 16:08:21 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	add_enemy_window(t_game *game, int line, int col)
 {
 	if (mlx_image_to_window(game->mlx, game->textures->enemy,
-				col * PIXELS, line * PIXELS) < 0)
-			error_message("Failed to put exit image to window");
+			col * PIXELS, line * PIXELS) < 0)
+		error_message("Failed to put exit image to window");
 }
+
 t_image	*add_enemy_texture(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t	*enemy;

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 14:28:44 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/17 18:33:26 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 11:28:44 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ static void	add_texture_character(t_game *game, int line, int col)
 	else if (game->map[line][col] == 'P')
 	{
 		add_player_direction_textures(game, line, col);
+		disable_sprites(game);
 	}
 }
 

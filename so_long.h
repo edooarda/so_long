@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/17 18:32:26 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 11:27:59 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_image	*add_exit_texture(mlx_t *mlx, t_image *image);
 t_image	*add_player_texture(mlx_t *mlx, t_image *image);
 t_image *add_player_direction_texture_1(mlx_t *mlx, t_image *image);
 void	direction_texture(t_game *game, char c);
+void	disable_sprites(t_game *game);
 void	add_texture_window(t_game *game);
 void	add_floor_window(t_game *game);
 

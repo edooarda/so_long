@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/17 17:05:07 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/17 18:34:18 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 11:33:57 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,34 +60,54 @@ void	direction_texture(t_game *game, char c)
 {
 	if (c == 'U')
 	{
-		game->textures->p_up->instances->enabled = true;
 		game->textures->player->instances->enabled = false;
-		game->textures->p_down->instances->enabled = false;
-		game->textures->p_right->instances->enabled = false;
-		game->textures->p_left->instances->enabled = false;
+		disable_sprites(game);
+		game->textures->p_up->instances->enabled = true;
+		game->textures->player->instances[0].y -= PIXELS;
+		game->textures->p_down->instances[0].y -= PIXELS;
+		game->textures->p_right->instances[0].y -= PIXELS;
+		game->textures->p_left->instances[0].y -= PIXELS;
+		game->textures->p_up->instances[0].y -= PIXELS;
 	}
 	if (c == 'D')
 	{
-		game->textures->p_down->instances->enabled = true;
 		game->textures->player->instances->enabled = false;
-		game->textures->p_up->instances->enabled = false;
-		game->textures->p_right->instances->enabled = false;
-		game->textures->p_left->instances->enabled = false;
+		disable_sprites(game);
+		game->textures->p_down->instances->enabled = true;
+		game->textures->player->instances[0].y += PIXELS;
+		game->textures->p_up->instances[0].y += PIXELS;
+		game->textures->p_down->instances[0].y += PIXELS;
+		game->textures->p_right->instances[0].y += PIXELS;
+		game->textures->p_left->instances[0].y += PIXELS;
 	}
 	if (c == 'L')
 	{
-		game->textures->p_left->instances->enabled = true;
 		game->textures->player->instances->enabled = false;
-		game->textures->p_up->instances->enabled = false;
-		game->textures->p_down->instances->enabled = false;
-		game->textures->p_right->instances->enabled = false;
+		disable_sprites(game);
+		game->textures->p_left->instances->enabled = true;
+		game->textures->player->instances[0].x -= PIXELS;
+		game->textures->p_left->instances[0].x -= PIXELS;
+		game->textures->p_up->instances[0].x -= PIXELS;
+		game->textures->p_down->instances[0].x -= PIXELS;
+		game->textures->p_right->instances[0].x -= PIXELS;
 	}
 	if (c == 'R')
 	{
-		game->textures->p_right->instances->enabled = true;
 		game->textures->player->instances->enabled = false;
-		game->textures->p_up->instances->enabled = false;
-		game->textures->p_down->instances->enabled = false;
-		game->textures->p_left->instances->enabled = false;
+		disable_sprites(game);
+		game->textures->p_right->instances->enabled = true;
+		game->textures->player->instances[0].x += PIXELS;
+		game->textures->p_right->instances[0].x += PIXELS;
+		game->textures->p_up->instances[0].x += PIXELS;
+		game->textures->p_down->instances[0].x += PIXELS;
+		game->textures->p_left->instances[0].x += PIXELS;
 	}
+}
+
+void	disable_sprites(t_game *game)
+{
+	game->textures->p_left->instances->enabled = false;
+	game->textures->p_right->instances->enabled = false;
+	game->textures->p_down->instances->enabled = false;
+	game->textures->p_up->instances->enabled = false;
 }

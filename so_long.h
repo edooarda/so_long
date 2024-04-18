@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 11:27:59 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 14:14:18 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_image
 	mlx_image_t		*img_moves;
 	mlx_image_t		*img_collect;
 	mlx_image_t		*collect_window;
+	mlx_image_t		*enemy;
 }	t_image;
 
 typedef struct s_game
@@ -72,9 +73,6 @@ t_image	*add_floor_texture(mlx_t *mlx, t_image *image);
 t_image	*add_collectable_texture(mlx_t *mlx, t_image *image);
 t_image	*add_exit_texture(mlx_t *mlx, t_image *image);
 t_image	*add_player_texture(mlx_t *mlx, t_image *image);
-t_image *add_player_direction_texture_1(mlx_t *mlx, t_image *image);
-void	direction_texture(t_game *game, char c);
-void	disable_sprites(t_game *game);
 void	add_texture_window(t_game *game);
 void	add_floor_window(t_game *game);
 
@@ -90,5 +88,13 @@ void	msg_collectable_screen(t_game *game);
 //
 void	free_map(char **map, int height);
 char	*read_map(char *map, char *map_read);
+
+// Bonus
+t_image *add_player_direction_texture_y(mlx_t *mlx, t_image *image);
+void	direction_texture(t_game *game, char c);
+void	disable_sprites(t_game *game);
+t_image	*add_enemy_texture(mlx_t *mlx, t_image *image);
+void	add_enemy_window(t_game *game, int line, int col);
+void	touch_enemies(t_game *game, int player_y, int player_x);
 
 #endif

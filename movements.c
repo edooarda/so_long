@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 15:11:46 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 11:13:35 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 12:02:30 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_game	*move_right(t_game *game)
 { 
 	if (game->map[game->player_position_y][game->player_position_x + 1] != '1')
 	{
-		// game->textures->player->instances[0].x += PIXELS;
 		direction_texture(game, 'R');
 		game->player_position_x++;
 		game->moves++;
@@ -32,7 +31,6 @@ t_game	*move_left(t_game *game)
 {
 	if (game->map[game->player_position_y][game->player_position_x - 1] != '1')
 	{
-		// game->textures->player->instances[0].x -= PIXELS;
 		direction_texture(game, 'L');
 		game->player_position_x--;
 		game->moves++;
@@ -48,7 +46,6 @@ t_game	*move_down(t_game *game)
 {
 	if (game->map[game->player_position_y + 1][game->player_position_x] != '1')
 	{
-		// game->textures->player->instances[0].y += PIXELS;
 		direction_texture(game, 'D');
 		game->player_position_y++;
 		game->moves++;
@@ -64,7 +61,6 @@ t_game	*move_up(t_game *game)
 {
 	if (game->map[game->player_position_y - 1][game->player_position_x] != '1')
 	{
-		// game->textures->player->instances[0].y -= PIXELS;
 		direction_texture(game, 'U');
 		game->player_position_y--;
 		game->moves++;

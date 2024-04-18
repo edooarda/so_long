@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/15 10:59:57 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/17 12:13:21 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 13:38:51 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,13 @@ void	free_map(char **map, int height)
 
 static void	check_path(t_game *temp, int y, int x)
 {
-	// printf("position player first[%i][%i]\n", y, x);
-	if (temp->map[y][x] == '1' || temp->map[y][x] == 'E')
-	{
-		if (temp->map[y][x] == 'E')
-			temp->exit_position_x = 1;
+	if (temp->map[y][x] == '1' || temp->map[y][x] == 'S')
 		return ;
-	}
+	if (temp->map[y][x] == 'E')
+		temp->exit_position_x = 1;
 	if (temp->map[y][x] == 'C')
 		temp->collectable--;
 	temp->map[y][x] = '1';
-	// printf("			Change for 1!!!\n");
-	// printf("position player [%i][%i]\n", y, x);
 	check_path(temp, y + 1, x);
 	check_path(temp, y - 1, x);
 	check_path(temp, y, x + 1);
@@ -60,7 +55,6 @@ void	path_finder_checker(char **map, int height)
 	while (i < height)
 	{
 		temp.map[i] = ft_strdup(map[i]);
-		// printf("		%s\n", temp.map[i]);
 		i++;
 	}
 	check_path(&temp, temp.player_position_y, temp.player_position_x);

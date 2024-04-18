@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/05 15:54:17 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/17 17:41:03 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/18 14:18:36 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void	collect_all_collectable(t_game *game)
 		ft_printf("\n");
 		ft_putendl_fd("Are you missing carrots 🥕? Mr Rabbit wants them ALL!", 2);
 	}
+	touch_enemies(game, game->player_position_y, game->player_position_x);
 }

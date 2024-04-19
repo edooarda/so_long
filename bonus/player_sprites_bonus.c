@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   player_sprites.c                                   :+:    :+:            */
+/*   player_sprites_bonus.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/17 17:05:07 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:03:28 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:18:09 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static t_image	*add_player_direction_texture_2(mlx_t *mlx, t_image *image)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   movements.c                                        :+:    :+:            */
+/*   movements_bonus.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 15:11:46 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:25:02 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:18:25 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 t_game	*move_right(t_game *game)
 {

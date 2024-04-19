@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/04/19 16:31:59 by edribeir      ########   odam.nl          #
+#    Updated: 2024/04/19 17:20:00 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,19 +35,19 @@ SOURCE = main.c \
 			end_game_checkers.c \
 			map_path_checker.c \
 
-BONUS_SRC = ./bonus/main.c \
-			./bonus/parsing.c \
-			./bonus/str_map_checkers.c \
-			./bonus/array_map_checkers.c \
-			./bonus/content.c \
-			./bonus/texture_functions.c \
-			./bonus/player_sprites.c \
-			./bonus/add_to_window.c \
-			./bonus/movements.c \
-			./bonus/end_game_checkers.c \
-			./bonus/map_path_checker.c \
-			./bonus/message_window.c \
-			./bonus/enemies.c \
+BONUS_SRC = ./bonus/main_bonus.c \
+			./bonus/parsing_bonus.c \
+			./bonus/str_map_checkers_bonus.c \
+			./bonus/array_map_checkers_bonus.c \
+			./bonus/content_bonus.c \
+			./bonus/texture_functions_bonus.c \
+			./bonus/player_sprites_bonus.c \
+			./bonus/add_to_window_bonus.c \
+			./bonus/movements_bonus.c \
+			./bonus/end_game_checkers_bonus.c \
+			./bonus/map_path_checker_bonus.c \
+			./bonus/message_window_bonus.c \
+			./bonus/enemies_bonus.c \
 
 OBJECTS = $(SOURCE:%.c=%.o)
 

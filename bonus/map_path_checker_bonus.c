@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   map_path_checker.c                                 :+:    :+:            */
+/*   map_path_checker_bonus.c                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/15 10:59:57 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:42:50 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:18:42 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	free_map(char **map, int height)
 {

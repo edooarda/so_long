@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   str_map_checkers.c                                 :+:    :+:            */
+/*   str_map_checkers_bonus.c                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 17:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:10:30 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:17:50 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void	check_map_occurrences(char *map)
 {

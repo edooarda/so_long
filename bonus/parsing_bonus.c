@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   parsing.c                                          :+:    :+:            */
+/*   parsing_bonus.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 11:48:53 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:21:39 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:18:17 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static char	*read_map(char *map)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   array_map_checkers.c                               :+:    :+:            */
+/*   array_map_checkers_bonus.c                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/26 11:30:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 11:18:29 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:19:11 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void	free_array_map(char **map)
 {

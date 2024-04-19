@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   enemies.c                                          :+:    :+:            */
+/*   enemies_bonus.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/18 12:10:58 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:30:53 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:18:54 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	add_enemy_window(t_game *game, int line, int col)
 {

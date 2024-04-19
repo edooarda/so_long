@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   add_to_window.c                                    :+:    :+:            */
+/*   add_to_window_bonus.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 14:28:44 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:23:08 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:19:18 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	add_floor_window(t_game *game)
 {

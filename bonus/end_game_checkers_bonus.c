@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   end_game_checkers.c                                :+:    :+:            */
+/*   end_game_checkers_bonus.c                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/05 15:54:17 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 12:49:52 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:19:01 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 t_game	*collect_checker(int y, int x, t_game *game)
 {

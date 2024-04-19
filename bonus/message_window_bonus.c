@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   message_window.c                                   :+:    :+:            */
+/*   message_window_bonus.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/17 12:11:39 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 12:54:43 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:18:33 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	message_to_screen(t_game *game)
 {

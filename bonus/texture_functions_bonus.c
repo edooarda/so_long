@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   texture_functions.c                                :+:    :+:            */
+/*   texture_functions_bonus.c                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/28 13:31:13 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:14:55 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:17:38 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 t_image	*add_player_texture(mlx_t *mlx, t_image *image)
 {

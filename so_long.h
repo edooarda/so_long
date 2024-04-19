@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 19:09:24 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 13:43:51 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,12 @@ void	error_message(char *message);
 void	message_to_screen(t_game *game);
 void	msg_moves_screen(t_game *game);
 void	msg_collectable_screen(t_game *game);
-void	message_exit_clean(t_game *game, char *message);
 
 //
 void	free_map(char **map, int height);
 
 // Bonus
-t_image *add_player_direction_texture_y(mlx_t *mlx, t_image *image);
+t_image	*add_player_direction_texture_y(mlx_t *mlx, t_image *image);
 void	direction_texture(t_game *game, char c);
 void	disable_sprites(t_game *game);
 t_image	*add_enemy_texture(mlx_t *mlx, t_image *image);

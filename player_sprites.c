@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/17 17:05:07 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 18:06:35 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 13:03:28 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static t_image	*add_player_direction_texture_2(mlx_t *mlx, t_image *image)
 	mlx_texture_t	*hero_left;
 	mlx_texture_t	*hero_right;
 
-	hero_left = mlx_load_png("texture/hero_left.png");
+	hero_left = mlx_load_png("texture/ms_moo_left.png");
 	if (hero_left == NULL)
 		error_message("Problem with loading P.Image");
 	image->p_left = mlx_texture_to_image(mlx, hero_left);
 	if (image->p_left == NULL)
 		error_message("Problem adding texture P.Image");
 	mlx_delete_texture(hero_left);
-	hero_right = mlx_load_png("texture/hero_right.png");
+	hero_right = mlx_load_png("texture/ms_moo_right.png");
 	if (hero_right == NULL)
 		error_message("Problem with loading P.Image");
 	image->p_right = mlx_texture_to_image(mlx, hero_right);
@@ -39,14 +39,14 @@ t_image	*add_player_direction_texture_y(mlx_t *mlx, t_image *image)
 	mlx_texture_t	*hero_up;
 	mlx_texture_t	*hero_down;
 
-	hero_up = mlx_load_png("texture/hero_up.png");
+	hero_up = mlx_load_png("texture/ms_moo_up.png");
 	if (hero_up == NULL)
 		error_message("Problem with loading P.Image");
 	image->p_up = mlx_texture_to_image(mlx, hero_up);
 	if (image->p_up == NULL)
 		error_message("Problem adding texture P.Image");
 	mlx_delete_texture(hero_up);
-	hero_down = mlx_load_png("texture/hero_down.png");
+	hero_down = mlx_load_png("texture/ms_moo_down.png");
 	if (hero_down == NULL)
 		error_message("Problem with loading P.Image");
 	image->p_down = mlx_texture_to_image(mlx, hero_down);

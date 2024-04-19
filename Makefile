@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/04/18 19:07:40 by edribeir      ########   odam.nl          #
+#    Updated: 2024/04/19 10:43:17 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 
 FLAGSMLX = -ldl -lglfw -pthread -lm 
 
-SOURCE = so_long.c \
+SOURCE = main.c \
 			parsing.c \
 			str_map_checkers.c \
 			array_map_checkers.c \

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/15 10:59:57 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 13:38:51 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 13:42:50 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	check_path(t_game *temp, int y, int x)
 	check_path(temp, y, x - 1);
 }
 
-void	path_finder_checker(char **map, int height)
+static t_game	temp_creation(char **map, int height)
 {
 	t_game	temp;
 	int		i;
@@ -50,15 +50,31 @@ void	path_finder_checker(char **map, int height)
 	temp.height = height;
 	temp.map = (char **)ft_calloc(height, sizeof(char *));
 	if (temp.map == NULL)
+	{
+		free_map(map, height);
+		free_map(temp.map, temp.height);
 		error_message("Memory Allocation Fail");
+	}
 	i = 0;
 	while (i < height)
 	{
 		temp.map[i] = ft_strdup(map[i]);
 		i++;
 	}
+	return (temp);
+}
+
+void	path_finder_checker(char **map, int height)
+{
+	t_game	temp;
+
+	temp = temp_creation(map, height);
 	check_path(&temp, temp.player_position_y, temp.player_position_x);
 	if (temp.exit_position_x != 1 || temp.collectable != 0)
+	{
+		free_map(map, height);
+		free_map(temp.map, temp.height);
 		error_message("No valid path available");
+	}
 	free_map(temp.map, temp.height);
 }

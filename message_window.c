@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/17 12:11:39 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 16:40:12 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 12:54:43 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	msg_collectable_screen(t_game *game)
 		mlx_delete_image(game->mlx, game->textures->collect_window);
 		mlx_delete_image(game->mlx, game->textures->img_collect);
 		game->textures->img_collect = mlx_put_string(game->mlx,
-				"Mr. Rabbit is very happy!!! GO HOME!", 175, game->height * 64);
+				"Ms. MOO is very happy!!! GO HOME!", 175, game->height * 64);
 	}
 	free(str);
 }

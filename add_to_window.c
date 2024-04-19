@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 14:28:44 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 19:10:34 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 13:23:08 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ static void	add_texture_character(t_game *game, int line, int col)
 				col * PIXELS, line * PIXELS) < 0)
 			error_message("Failed to put wall image to window");
 	}
+	else if (game->map[line][col] == 'P')
+	{
+		add_player_direction_textures(game, line, col);
+		disable_sprites(game);
+	}
 	else if (game->map[line][col] == 'C')
 	{
 		if (mlx_image_to_window(game->mlx, game->textures->collect,
@@ -70,11 +75,6 @@ static void	add_texture_character(t_game *game, int line, int col)
 		if (mlx_image_to_window(game->mlx, game->textures->exit,
 				col * PIXELS, line * PIXELS) < 0)
 			error_message("Failed to put exit image to window");
-	}
-	else if (game->map[line][col] == 'P')
-	{
-		add_player_direction_textures(game, line, col);
-		disable_sprites(game);
 	}
 	else if (game->map[line][col] == 'S')
 		add_enemy_window(game, line, col);

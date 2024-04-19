@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   so_long.c                                          :+:    :+:            */
+/*   main.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:27 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 18:47:11 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 13:08:05 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	message_exit_clean(t_game *game, char *message)
-{
-	free_map(game->map, game->height);
-	error_message(message);
-	// free(game->textures);
-	// exit(EXIT_FAILURE);
-}
 
 void	error_message(char *message)
 {
@@ -27,7 +19,7 @@ void	error_message(char *message)
 	exit(EXIT_FAILURE);
 }
 
-void	checker_file_extension(char *file)
+static void	checker_file_extension(char *file)
 {
 	int	len;
 
@@ -46,9 +38,9 @@ int32_t	main(int argc, char **argv)
 	game = turn_file_into_data(argv[1]);
 	game.mlx = mlx_init((game.width * PIXELS),
 			(game.height * PIXELS + 22), "so_long", true);
-	ft_putendl_fd("Let's Play! Mr Rabbit is hungry!", 1);
+	ft_putendl_fd("\nLet's Play! Ms. MOO is hungry 🍄!", 1);
 	if (!game.mlx)
-		message_exit_clean(&game, "MLX problem");
+		error_message("MLX problem");
 	game.textures = initialize_image_struct(&game);
 	add_floor_window(&game);
 	add_texture_window(&game);

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/28 13:31:13 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 19:10:19 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 13:14:55 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_image	*add_player_texture(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t	*hero;
 
-	hero = mlx_load_png("texture/hero_wait.png");
+	hero = mlx_load_png("texture/ms_moo_wait.png");
 	if (hero == NULL)
 		error_message("Problem with loading P.Image");
 	image->player = mlx_texture_to_image(mlx, hero);
@@ -28,15 +28,15 @@ t_image	*add_player_texture(mlx_t *mlx, t_image *image)
 
 t_image	*add_exit_texture(mlx_t *mlx, t_image *image)
 {
-	mlx_texture_t	*hole;
+	mlx_texture_t	*exit;
 
-	hole = mlx_load_png("texture/exit.png");
-	if (hole == NULL)
+	exit = mlx_load_png("texture/exit_open.png");
+	if (exit == NULL)
 		error_message("Problem with loading E.Image");
-	image->exit = mlx_texture_to_image(mlx, hole);
+	image->exit = mlx_texture_to_image(mlx, exit);
 	if (image->exit == NULL)
 		error_message("Problem adding texture E.Image");
-	mlx_delete_texture(hole);
+	mlx_delete_texture(exit);
 	return (image);
 }
 
@@ -44,7 +44,7 @@ t_image	*add_collectable_texture(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t	*collect;
 
-	collect = mlx_load_png("texture/carrot.png");
+	collect = mlx_load_png("texture/mushroom.png");
 	if (collect == NULL)
 		error_message("Problem with loading C.Image");
 	image->collect = mlx_texture_to_image(mlx, collect);

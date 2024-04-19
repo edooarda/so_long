@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 14:28:44 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 16:30:25 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 16:53:12 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static void	add_texture_character(t_game *game, int line, int col)
 	else if (game->map[line][col] == 'P')
 	{
 		if (mlx_image_to_window(game->mlx, game->textures->player,
-			col * PIXELS, line * PIXELS) < 0)
-		error_message("Failed to put hero image to window");
+				col * PIXELS, line * PIXELS) < 0)
+			error_message("Failed to put hero image to window");
 	}
 	else if (game->map[line][col] == 'C')
 	{

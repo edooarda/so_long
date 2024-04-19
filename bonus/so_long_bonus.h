@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   so_long.h                                          :+:    :+:            */
+/*   so_long_bonus.h                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 16:07:24 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 17:26:37 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include "../Libft/libft.h"
 # include "../Libft/ft_printf.h"
 # include "../Libft/get_next_line.h"

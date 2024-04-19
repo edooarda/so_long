@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 17:08:35 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:10:30 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 16:27:41 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	check_map_invalid_char(char *map)
 	i = 0;
 	while (map[i])
 	{
-		if (ft_strchr("01PECS\n", map[i]) == NULL)
+		if (ft_strchr("01PEC\n", map[i]) == NULL)
 		{
 			ft_putendl_fd("ERROR", 2);
 			ft_printf("Invalid Map, there is a Invalid Character, ");

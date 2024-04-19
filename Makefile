@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/04/19 16:23:54 by edribeir      ########   odam.nl          #
+#    Updated: 2024/04/19 16:31:59 by edribeir      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,10 @@ SOURCE = main.c \
 			array_map_checkers.c \
 			content.c \
 			texture_functions.c \
-			player_sprites.c \
 			add_to_window.c \
 			movements.c \
 			end_game_checkers.c \
 			map_path_checker.c \
-			message_window.c \
-			enemies.c \
 
 BONUS_SRC = ./bonus/main.c \
 			./bonus/parsing.c \

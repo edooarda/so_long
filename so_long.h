@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/05 15:23:40 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 16:26:16 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 16:37:43 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,6 @@ typedef struct s_image
 	mlx_image_t		*exit;
 	mlx_image_t		*collect;
 	mlx_image_t		*player;
-	mlx_image_t		*p_up;
-	mlx_image_t		*p_down;
-	mlx_image_t		*p_right;
-	mlx_image_t		*p_left;
-	mlx_image_t		*img_moves;
-	mlx_image_t		*img_collect;
-	mlx_image_t		*collect_window;
-	mlx_image_t		*enemy;
 }	t_image;
 
 typedef struct s_game
@@ -81,19 +73,8 @@ void	ft_hook_moves(mlx_key_data_t keydata, void *mlx);
 
 // Messages
 void	error_message(char *message);
-void	message_to_screen(t_game *game);
-void	msg_moves_screen(t_game *game);
-void	msg_collectable_screen(t_game *game);
 
 //
 void	free_map(char **map, int height);
-
-// Bonus
-t_image	*add_player_direction_texture_y(mlx_t *mlx, t_image *image);
-void	direction_texture(t_game *game, char c);
-void	disable_sprites(t_game *game);
-t_image	*add_enemy_texture(mlx_t *mlx, t_image *image);
-void	add_enemy_window(t_game *game, int line, int col);
-void	touch_enemies(t_game *game, int player_y, int player_x);
 
 #endif

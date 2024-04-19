@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/02 15:11:46 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 13:25:02 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 16:36:06 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_game	*move_right(t_game *game)
 {
 	if (game->map[game->player_position_y][game->player_position_x + 1] != '1')
 	{
-		direction_texture(game, 'R');
+		game->textures->player->instances->x += PIXELS;
 		game->player_position_x++;
 		game->moves++;
 		collect_checker(game->player_position_y, game->player_position_x, game);
@@ -31,7 +31,7 @@ t_game	*move_left(t_game *game)
 {
 	if (game->map[game->player_position_y][game->player_position_x - 1] != '1')
 	{
-		direction_texture(game, 'L');
+		game->textures->player->instances->x -= PIXELS;
 		game->player_position_x--;
 		game->moves++;
 		collect_checker(game->player_position_y, game->player_position_x, game);
@@ -46,7 +46,7 @@ t_game	*move_down(t_game *game)
 {
 	if (game->map[game->player_position_y + 1][game->player_position_x] != '1')
 	{
-		direction_texture(game, 'D');
+		game->textures->player->instances->y += PIXELS;
 		game->player_position_y++;
 		game->moves++;
 		collect_checker(game->player_position_y, game->player_position_x, game);
@@ -61,7 +61,7 @@ t_game	*move_up(t_game *game)
 {
 	if (game->map[game->player_position_y - 1][game->player_position_x] != '1')
 	{
-		direction_texture(game, 'U');
+		game->textures->player->instances->y -= PIXELS;
 		game->player_position_y--;
 		game->moves++;
 		collect_checker(game->player_position_y, game->player_position_x, game);
@@ -94,6 +94,4 @@ void	ft_hook_moves(mlx_key_data_t keydata, void *mlx)
 	if ((keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
 		|| (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS))
 		move_right(mlx);
-	msg_moves_screen(game);
-	msg_collectable_screen(game);
 }

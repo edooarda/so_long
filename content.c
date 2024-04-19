@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/27 12:04:30 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/18 18:16:43 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 16:28:59 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,5 @@ t_image	*initialize_image_struct(t_game *game)
 	textures = add_exit_texture(game->mlx, textures);
 	textures = add_collectable_texture(game->mlx, textures);
 	textures = add_player_texture(game->mlx, textures);
-	textures = add_player_direction_texture_y(game->mlx, textures);
-	textures = add_enemy_texture(game->mlx, textures);
 	return (textures);
 }

@@ -6,7 +6,7 @@
 /*   By: edribeir <edribeir@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/05 15:54:17 by edribeir      #+#    #+#                 */
-/*   Updated: 2024/04/19 12:49:52 by edribeir      ########   odam.nl         */
+/*   Updated: 2024/04/19 16:33:27 by edribeir      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,4 @@ void	finish_game_checker(t_game *game)
 		ft_putendl_fd("Are you missing mushrooms 🍄?", 2);
 		ft_putendl_fd("Ms. MOO wants them ALL!", 2);
 	}
-	touch_enemies(game, game->player_position_y, game->player_position_x);
 }

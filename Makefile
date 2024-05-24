@@ -6,7 +6,7 @@
 #    By: edribeir <edribeir@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/04/19 17:20:00 by edribeir      ########   odam.nl          #
+#    Updated: 2024/05/24 17:03:46 by eduarda       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = so_long
 BONUS_PART = so_long_bonus
 
 LIBFT = ./Libft/libft.a
+
+SUB = .MLX42
 
 MLXLIB = MLX42/build/libmlx42.a
 
@@ -53,9 +55,14 @@ OBJECTS = $(SOURCE:%.c=%.o)
 
 BONUS_OBJ = $(BONUS_SRC:%.c=%.o)
 
-all: $(MLXLIB) $(NAME)
+all: $(SUB) $(MLXLIB) $(NAME)
 
 bonus: $(BONUS_PART)
+
+$(SUB):
+	@echo "\t\tUpdating submodules...⌛"
+	@git submodule update --init --recursive
+	@echo "\t\tSubmodules Updated ✅"
 
 $(MLXLIB):
 	@cmake $(LIBMLX) -DEBUG=1 -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4

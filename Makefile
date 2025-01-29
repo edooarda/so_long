@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: edribeir <edribeir@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2024/03/05 15:23:53 by edribeir      #+#    #+#                  #
-#    Updated: 2024/05/24 17:03:46 by eduarda       ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: edooarda <edooarda@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/05 15:23:53 by edribeir          #+#    #+#              #
+#    Updated: 2025/01/29 21:19:25 by edooarda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,14 +55,9 @@ OBJECTS = $(SOURCE:%.c=%.o)
 
 BONUS_OBJ = $(BONUS_SRC:%.c=%.o)
 
-all: $(SUB) $(MLXLIB) $(NAME)
+all: $(MLXLIB) $(NAME)
 
 bonus: $(BONUS_PART)
-
-$(SUB):
-	@echo "\t\tUpdating submodules...⌛"
-	@git submodule update --init --recursive
-	@echo "\t\tSubmodules Updated ✅"
 
 $(MLXLIB):
 	@cmake $(LIBMLX) -DEBUG=1 -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
@@ -85,6 +80,11 @@ $(BONUS_PART): $(LIBFT) $(MLXLIB) $(BONUS_OBJ)
 	@echo "\tB\tO\tN\tU\tS 🌟"
 	@echo "\t LOOK AT THE WATER! It is Enemy!"
 
+sub:
+	@echo "\t\tUpdating submodules...⌛"
+	@git submodule update --init --recursive
+	@echo "\t\tSubmodules Updated ✅"
+
 clean: 
 	@$(MAKE) clean -C ./Libft
 	@rm -f $(OBJECTS)
@@ -100,4 +100,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus sub
